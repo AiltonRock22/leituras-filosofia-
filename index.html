@@ -3,131 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leituras de Filosofia - Prof. Ailton</title>
+    <title>Portal de Estudos - Prof. Ailton Carlos</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            background-color: #e9ecef;
-            color: #333;
+        /* Variáveis de cores para facilitar mudanças */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --bg: #f8f9fa;
+            --text: #333;
         }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
         header {
-            background: #1a252f;
+            background: var(--primary);
             color: white;
-            padding: 40px 20px;
+            padding: 30px 15px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 5px solid var(--secondary);
         }
 
         .container {
-            max-width: 1100px;
-            margin: 30px auto;
+            max-width: 900px;
+            margin: 0 auto;
             padding: 20px;
         }
 
-        .grid {
+        /* Seção Sobre o Professor - Visual limpo */
+        .perfil-professor {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-left: 6px solid var(--secondary);
+        }
+
+        .perfil-info h2 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        .perfil-info p {
+            margin: 8px 0 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Grid de Capítulos */
+        .titulo-secao {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+        }
+
+        .grid-materiais {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
         }
 
-        /* Cartão do Material */
         .card {
-            background: #fff;
+            background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.2s;
-            border: 1px solid #dee2e6;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
         }
 
-        /* Área da Miniatura */
-        .thumb-container {
+        .thumb {
             width: 100%;
-            height: 200px;
-            overflow: hidden;
-            background: #f8f9fa;
-            border-bottom: 2px solid #3498db;
+            height: 180px;
+            object-fit: cover;
+            background: #eee;
         }
 
-        .thumb-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Faz a imagem preencher o espaço */
-        }
-
-        .content {
+        .card-body {
             padding: 20px;
             text-align: center;
         }
 
-        .content h3 {
+        .card-body h3 {
             margin: 0 0 15px;
-            color: #2c3e50;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
 
-        .btn {
+        .btn-abrir {
             display: block;
-            background: #3498db;
+            background: var(--secondary);
             color: white;
             padding: 12px;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        .btn:hover {
-            background: #217dbb;
+        .btn-abrir:hover {
+            background: #2980b9;
+        }
+
+        /* Ajustes para Celular (Mobile) */
+        @media (max-width: 600px) {
+            .perfil-professor {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 10px;
+            }
         }
 
         footer {
             text-align: center;
-            padding: 40px;
-            color: #6c757d;
+            padding: 40px 20px;
+            font-size: 0.85rem;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Material Didático de Filosofia</h1>
-    <p>Escola Estadual Felício Pereira de Araújo</p>
+    <h1>Espaço de Leitura</h1>
+    <p>Filosofia & Tecnologia</p>
 </header>
 
 <div class="container">
-    <div class="grid">
+    
+    <section class="perfil-professor">
+        <div class="perfil-info">
+            <h2>Prof. Ailton Carlos S. Mota</h2>
+            <p>
+                Professor de Filosofia na <strong>Escola Estadual Felício Pereira de Araújo</strong>. 
+                Sou entusiasta da tecnologia e busco unir o pensamento crítico à inovação digital para facilitar o aprendizado dos meus alunos.
+            </p>
+            <p><small>📍 Montes Claros, MG</small></p>
+        </div>
+    </section>
 
-        <div class="card">
-            <div class="thumb-container">
-                <img src="https://drive.google.com/thumbnail?id=1pCItDPeQjQ3yzgQ9dJGLtay5JCLgb6Dj&sz=w500" alt="Capa Cap 11">
-            </div>
-            <div class="content">
+    <h2 class="titulo-secao">Materiais Disponíveis</h2>
+
+    <main class="grid-materiais">
+        
+        <article class="card">
+            <img class="thumb" src="https://drive.google.com/thumbnail?id=1pCItDPeQjQ3yzgQ9dJGLtay5JCLgb6Dj&sz=w500" alt="Capa Capítulo 11">
+            <div class="card-body">
                 <h3>Capítulo 11</h3>
-                <a href="https://drive.google.com/file/d/1pCItDPeQjQ3yzgQ9dJGLtay5JCLgb6Dj/view" target="_blank" class="btn">Abrir Leitura</a>
+                <a href="https://drive.google.com/file/d/1pCItDPeQjQ3yzgQ9dJGLtay5JCLgb6Dj/view" target="_blank" class="btn-abrir">Acessar Leitura</a>
             </div>
-        </div>
+        </article>
 
-        <div class="card">
-            <div class="thumb-container">
-                <img src="https://drive.google.com/thumbnail?id=192K3-Kk_GD3ZON7IBL7R9wwxz9Y3QeK0&sz=w500" alt="Capa Cap 12">
-            </div>
-            <div class="content">
+        <article class="card">
+            <img class="thumb" src="https://drive.google.com/thumbnail?id=192K3-Kk_GD3ZON7IBL7R9wwxz9Y3QeK0&sz=w500" alt="Capa Capítulo 12">
+            <div class="card-body">
                 <h3>Capítulo 12</h3>
-                <a href="https://drive.google.com/file/d/192K3-Kk_GD3ZON7IBL7R9wwxz9Y3QeK0/view" target="_blank" class="btn">Abrir Leitura</a>
+                <a href="https://drive.google.com/file/d/192K3-Kk_GD3ZON7IBL7R9wwxz9Y3QeK0/view" target="_blank" class="btn-abrir">Acessar Leitura</a>
             </div>
-        </div>
+        </article>
 
-    </div>
+    </main>
 </div>
 
 <footer>
-    <p>Organizado pelo Professor Ailton Carlos S. Mota &copy; 2026</p>
+    <p>&copy; 2026 - Desenvolvido por Ailton Carlos S. Mota</p>
 </footer>
 
 </body>
