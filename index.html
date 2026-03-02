@@ -3,196 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Estudos - Prof. Ailton Carlos</title>
+    <title>Filosofia pra quem quer pensar | Prof. Ailton</title>
     <style>
-        /* Variáveis de cores para facilitar mudanças */
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --bg: #f8f9fa;
-            --text: #333;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f3f5;
+            color: #1a2b3c;
+            line-height: 1.5;
         }
 
-        /* Cabeçalho */
-        header {
-            background: var(--primary);
+        /* Cabeçalho mais direto, sem firula */
+        .cabecalho {
+            background: #1e3c5c;
             color: white;
-            padding: 30px 15px;
+            padding: 3rem 1.5rem;
             text-align: center;
-            border-bottom: 5px solid var(--secondary);
+            border-bottom: 5px solid #ffb347;
+        }
+
+        .cabecalho h1 {
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cabecalho p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2rem 1.5rem;
         }
 
-        /* Seção Sobre o Professor - Visual limpo */
-        .perfil-professor {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            border-left: 6px solid var(--secondary);
+        /* Área dos cards - que são os materiais mesmo */
+        .materiais {
+            margin-bottom: 3rem;
         }
 
-        .perfil-info h2 {
-            margin: 0;
-            color: var(--primary);
-            font-size: 1.4rem;
+        .materiais h2 {
+            font-size: 1.8rem;
+            color: #1e3c5c;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #ffb347;
+            display: inline-block;
         }
 
-        .perfil-info p {
-            margin: 8px 0 0;
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        /* Grid de Capítulos */
-        .titulo-secao {
-            text-align: center;
-            margin-bottom: 25px;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.2rem;
-        }
-
-        .grid-materiais {
+        .grade-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .card {
             background: white;
-            border-radius: 10px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.25s ease;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(30, 60, 92, 0.15);
         }
 
-        .thumb {
+        .card img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
-            background: #eee;
+            background: #f0f0f0;
+            display: block;
         }
 
-        .card-body {
-            padding: 20px;
+        .card-conteudo {
+            padding: 1.8rem 1.5rem;
             text-align: center;
         }
 
-        .card-body h3 {
-            margin: 0 0 15px;
-            font-size: 1.1rem;
+        .card-conteudo h3 {
+            font-size: 1.5rem;
+            color: #1e3c5c;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
-        .btn-abrir {
-            display: block;
-            background: var(--secondary);
+        .btn-leitura {
+            display: inline-block;
+            background: #1e3c5c;
             color: white;
-            padding: 12px;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: 0.2s;
+            border: 2px solid transparent;
+            width: 100%;
         }
 
-        .btn-abrir:hover {
-            background: #2980b9;
+        .btn-leitura:hover {
+            background: #ffb347;
+            color: #1e3c5c;
+            border-color: #1e3c5c;
         }
 
-        /* Ajustes para Celular (Mobile) */
+        /* Separador mais discreto */
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ccc, transparent);
+            margin: 3rem 0;
+        }
+
+        /* Seção sobre mim - mais pessoal */
+        .sobre-professor {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-left: 8px solid #ffb347;
+        }
+
+        .sobre-professor h2 {
+            font-size: 1.8rem;
+            color: #1e3c5c;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sobre-professor h2::before {
+            content: "👨‍🏫";
+            font-size: 2rem;
+        }
+
+        .sobre-professor p {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            max-width: 700px;
+        }
+
+        .contato {
+            display: inline-block;
+            background: #f0f7ff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            color: #1e3c5c;
+            font-weight: 500;
+            margin-top: 1rem;
+            border: 1px dashed #1e3c5c;
+        }
+
+        .rodape {
+            text-align: center;
+            padding: 2.5rem;
+            background: #1a2b3c;
+            color: #a0b8cc;
+            font-size: 0.95rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsivo na medida certa */
         @media (max-width: 600px) {
-            .perfil-professor {
-                flex-direction: column;
-                text-align: center;
+            .container {
+                padding: 1.5rem 1rem;
             }
             
-            header h1 {
+            .grade-cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .sobre-professor {
+                padding: 1.8rem;
+            }
+
+            .sobre-professor h2::before {
                 font-size: 1.5rem;
             }
-
-            .container {
-                padding: 10px;
-            }
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.85rem;
-            color: #888;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Espaço de Leitura</h1>
-    <p>Filosofia & Tecnologia</p>
-</header>
+    <header class="cabecalho">
+        <h1>Biblioteca de Filosofia</h1>
+        <p>E. E. Felício Pereira de Araújo • Montes Claros/MG</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem;">"Pensar é o trabalho mais difícil que existe. Talvez por isso tão poucos se dediquem a ele."</p>
+    </header>
 
-<div class="container">
-    
-    <section class="perfil-professor">
-        <div class="perfil-info">
-            <h2>Prof. Ailton Carlos S. Mota</h2>
-            <p>
-                Professor de Filosofia na <strong>Escola Estadual Felício Pereira de Araújo</strong>. 
-                Sou entusiasta da tecnologia e busco unir o pensamento crítico à inovação digital para facilitar o aprendizado dos meus alunos.
-            </p>
-            <p><small>📍 Montes Claros, MG</small></p>
-        </div>
-    </section>
-
-    <h2 class="titulo-secao">Materiais Disponíveis</h2>
-
-    <main class="grid-materiais">
+    <main class="container">
         
-        <article class="card">
-            <img class="thumb" src="https://drive.google.com/thumbnail?id=1pCItDPeQjQ3yzgQ9dJGLtay5JCLgb6Dj&sz=w500" alt="Capa Capítulo 11">
-            <div class="card-body">
-                <h3>Capítulo 11</h3>
-                <a href="https://drive.google.com/file/d/1pCItDPeQjQ3yzgQ9dJGLtay5JCLgb6Dj/view" target="_blank" class="btn-abrir">Acessar Leitura</a>
-            </div>
-        </article>
+        <section class="materiais">
+            <h2>📚 Materiais para leitura</h2>
+            
+            <div class="grade-cards">
+                
+                <article class="card">
+                    <img src="https://drive.google.com/thumbnail?id=1pCItDPeQjQ3yzgQ9dJGLtay5JCLgb6Dj&sz=w500" 
+                         alt="Capa do material - Capítulo 11" 
+                         loading="lazy">
+                    <div class="card-conteudo">
+                        <h3>Capítulo 11</h3>
+                        <a href="https://drive.google.com/file/d/1pCItDPeQjQ3yzgQ9dJGLtay5JCLgb6Dj/view" 
+                           target="_blank" 
+                           class="btn-leitura">
+                            📖 Ler capítulo
+                        </a>
+                    </div>
+                </article>
 
-        <article class="card">
-            <img class="thumb" src="https://drive.google.com/thumbnail?id=192K3-Kk_GD3ZON7IBL7R9wwxz9Y3QeK0&sz=w500" alt="Capa Capítulo 12">
-            <div class="card-body">
-                <h3>Capítulo 12</h3>
-                <a href="https://drive.google.com/file/d/192K3-Kk_GD3ZON7IBL7R9wwxz9Y3QeK0/view" target="_blank" class="btn-abrir">Acessar Leitura</a>
+                <article class="card">
+                    <img src="https://drive.google.com/thumbnail?id=192K3-Kk_GD3ZON7IBL7R9wwxz9Y3QeK0&sz=w500" 
+                         alt="Capa do material - Capítulo 12"
+                         loading="lazy">
+                    <div class="card-conteudo">
+                        <h3>Capítulo 12</h3>
+                        <a href="https://drive.google.com/file/d/192K3-Kk_GD3ZON7IBL7R9wwxz9Y3QeK0/view" 
+                           target="_blank" 
+                           class="btn-leitura">
+                            📖 Ler capítulo
+                        </a>
+                    </div>
+                </article>
+
             </div>
-        </article>
+        </section>
+
+        <hr>
+
+        <section class="sobre-professor">
+            <h2>Professor Ailton Carlos</h2>
+            <p>
+                Sou professor de Filosofia e Informática na E.E. Felício Pereira de Araújo, 
+                em Montes Claros. Também tô no mestrado pela Unimontes, pesquisando como 
+                juntar tecnologia com o ensino de filosofia - porque acredito que os 
+                estudantes merecem aprender de um jeito que faça sentido pro mundo deles.
+            </p>
+            <p>
+                Esses materiais aqui são os textos que a gente usa nas aulas. Fica à vontade 
+                pra ler, baixar e compartilhar. Filosofia boa é filosofia compartilhada.
+            </p>
+            <div class="contato">
+                📧 ailtoncarlos0101@gmail.com
+            </div>
+        </section>
 
     </main>
-</div>
 
-<footer>
-    <p>&copy; 2026 - Desenvolvido por Ailton Carlos S. Mota</p>
-</footer>
+    <footer class="rodape">
+        <p>© 2026 • Feito pelo professor, pros alunos</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Educação pública de qualidade é direito de todos</p>
+    </footer>
 
 </body>
 </html>
