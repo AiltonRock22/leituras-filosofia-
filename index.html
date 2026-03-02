@@ -18,7 +18,6 @@
             line-height: 1.5;
         }
 
-        /* Cabeçalho mais direto, sem firula */
         .cabecalho {
             background: #1e3c5c;
             color: white;
@@ -45,7 +44,6 @@
             padding: 2rem 1.5rem;
         }
 
-        /* Área dos cards - que são os materiais mesmo */
         .materiais {
             margin-bottom: 3rem;
         }
@@ -61,7 +59,7 @@
 
         .grade-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
         }
 
@@ -72,6 +70,8 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             transition: all 0.25s ease;
             border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -81,21 +81,25 @@
 
         .card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
             background: #f0f0f0;
             display: block;
         }
 
         .card-conteudo {
-            padding: 1.8rem 1.5rem;
+            padding: 1.5rem 1.2rem;
             text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card-conteudo h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: #1e3c5c;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             font-weight: 600;
         }
 
@@ -104,12 +108,13 @@
             background: #1e3c5c;
             color: white;
             text-decoration: none;
-            padding: 0.9rem 2rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 50px;
             font-weight: 500;
             transition: 0.2s;
             border: 2px solid transparent;
             width: 100%;
+            font-size: 0.95rem;
         }
 
         .btn-leitura:hover {
@@ -118,7 +123,6 @@
             border-color: #1e3c5c;
         }
 
-        /* Separador mais discreto */
         hr {
             border: none;
             height: 2px;
@@ -126,7 +130,6 @@
             margin: 3rem 0;
         }
 
-        /* Seção sobre mim - mais pessoal */
         .sobre-professor {
             background: white;
             padding: 2.5rem;
@@ -176,7 +179,6 @@
             margin-top: 2rem;
         }
 
-        /* Responsivo na medida certa */
         @media (max-width: 600px) {
             .container {
                 padding: 1.5rem 1rem;
@@ -194,6 +196,10 @@
             .sobre-professor h2::before {
                 font-size: 1.5rem;
             }
+            
+            .card img {
+                height: 160px;
+            }
         }
     </style>
 </head>
@@ -202,19 +208,37 @@
     <header class="cabecalho">
         <h1>Biblioteca de Filosofia</h1>
         <p>E. E. Felício Pereira de Araújo • Montes Claros/MG</p>
-        <p style="margin-top: 1rem; font-size: 0.95rem;">"Pensar é o trabalho mais difícil que existe. Talvez por isso tão poucos se dediquem a ele."</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            "Pensar é o trabalho mais difícil que existe. Talvez por isso tão poucos se dediquem a ele."
+        </p>
     </header>
 
     <main class="container">
         
         <section class="materiais">
-            <h2>📚 Materiais para leitura</h2>
+            <h2>📚 Materiais pra leitura</h2>
             
             <div class="grade-cards">
                 
+                <!-- Capítulo 1 -->
+                <article class="card">
+                    <img src="https://drive.google.com/thumbnail?id=1hp9JS7rleGaJ0Pi4PYmFh0UwELiSH9pj&sz=w500" 
+                         alt="Capa do Capítulo 1" 
+                         loading="lazy">
+                    <div class="card-conteudo">
+                        <h3>Capítulo 1</h3>
+                        <a href="https://drive.google.com/file/d/1hp9JS7rleGaJ0Pi4PYmFh0UwELiSH9pj/view" 
+                           target="_blank" 
+                           class="btn-leitura">
+                            📖 Ler capítulo
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Capítulo 11 -->
                 <article class="card">
                     <img src="https://drive.google.com/thumbnail?id=1pCItDPeQjQ3yzgQ9dJGLtay5JCLgb6Dj&sz=w500" 
-                         alt="Capa do material - Capítulo 11" 
+                         alt="Capa do Capítulo 11" 
                          loading="lazy">
                     <div class="card-conteudo">
                         <h3>Capítulo 11</h3>
@@ -226,9 +250,10 @@
                     </div>
                 </article>
 
+                <!-- Capítulo 12 -->
                 <article class="card">
                     <img src="https://drive.google.com/thumbnail?id=192K3-Kk_GD3ZON7IBL7R9wwxz9Y3QeK0&sz=w500" 
-                         alt="Capa do material - Capítulo 12"
+                         alt="Capa do Capítulo 12"
                          loading="lazy">
                     <div class="card-conteudo">
                         <h3>Capítulo 12</h3>
@@ -240,7 +265,27 @@
                     </div>
                 </article>
 
+                <!-- Capítulo 18 -->
+                <article class="card">
+                    <img src="https://drive.google.com/thumbnail?id=1z0dO3NdKmOzTMsQztTdDYuzZZQC8em7g&sz=w500" 
+                         alt="Capa do Capítulo 18"
+                         loading="lazy">
+                    <div class="card-conteudo">
+                        <h3>Capítulo 18</h3>
+                        <a href="https://drive.google.com/file/d/1z0dO3NdKmOzTMsQztTdDYuzZZQC8em7g/view" 
+                           target="_blank" 
+                           class="btn-leitura">
+                            📖 Ler capítulo
+                        </a>
+                    </div>
+                </article>
+
             </div>
+            
+            <!-- Mensagem sutil indicando que tem mais materiais -->
+            <p style="text-align: center; margin-top: 2rem; color: #4a5f73; font-style: italic;">
+                ⚡ Mais capítulos sendo adicionados conforme a gente avança no conteúdo
+            </p>
         </section>
 
         <hr>
